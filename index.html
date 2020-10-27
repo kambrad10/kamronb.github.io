@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSCE 190: Kam'Ron Bradford</title>
+    </head>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Nunito', sans-serif;
+        }
+        body{
+            overflow-x: hidden;
+            text-align: center;
+            border: 10px solid white;
+            height: 100vh;
+            background: black;
+            color: white;
+        }
+        .assignment{
+            position: absolute;
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            z-index: 1000;
+            left: 28.2%;
+            background: white;
+            color: black;
+            animation: assign 4s ease forwards;
+            opacity: 0;
+            /* transform: translate(3%,5%); */
+            
+        }
+        @keyframes assign {
+            0%{
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        .ass-details{
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            bottom: 50px;
+        }
+        img{
+            width: 350px;
+            height: 350px;
+            object-fit: contain;
+        }
+        h2{
+            margin: 0px 0px 10px;
+            color: black;
+            text-transform: uppercase;
+        }
+        a{
+            text-decoration: none;
+        }
+        h1{
+            text-transform: uppercase;
+            /* top and bottom */
+            margin: 20px 0px; 
+            transform: translateY(-50px)
+        }
+    </style>
+    <body>
+        <h1>Kam'Ron Bradford's CSCE 190 Site</h1>
+        <section class ="assignment">
+            <a href="files/affinitydiagram.pdf"><img src ="images/affinitydiagram.png"></a>
+            <section class = "ass-details">
+                <a href="files/affinitydiagram.pdf"><h2>Affinity Diagram: Diet</h2></a>
+                <p>
+                    I worked alone to brainstorm a diet proposition.
+                </p>
+            </section>
+        </section>
+    </body>
+    <script>
+        class Data {
+            async JAM(){
+                try{
+                    const URL = 'https://jamboard.google.com/d/1R2u64ELewNtsKMcls1oYx4m4wFic8e7y1eqc1Y4LoLI/viewer?f=0';
+                    const data = await fetch(URL);
+                    const response = await data.text();
+                    if(response === TypeError){
+                        const msg = "Welcome to KAM's CSCE 190 Site";
+                        return msg
+                    } else{
+                        return;
+                    }
+                }catch(err){
+                    let header_error_err;
+                    header_error_err = typeof err;
+                    console.log(`${JSON.stringify(header_error_err)}: Fetched data hasn't returned`);
+                }
+            }
+        }
+        const data = new Data;
+        data.JAM().then(user => {
+            if(user === undefined){
+                const MSG_from_response = "Welcome to KAM's CSCE 190 Site";
+                // v infinite loop !!!
+                // while(typeof MSG_from_response == "string"){
+                //     alert(MSG_from_response);
+                // }
+                alert(MSG_from_response);
+            }
+        })
+        .catch(err => console.log(err));
+
+        // animations
+
+        function slideDown(){
+            // const h1 = [...document.getElementsByClassName('h1')[0]]
+            const math = 0;
+            const 
+            H1_style = 
+            {CSS_1: "translateY(" + 0 + "px);", CSS_2: "3ms ease-in" };
+            const header = JSON.stringify(Object.values(H1_style)[0]);
+
+            const h1 = document.querySelector('h1');
+            h1.style.transform = header;
+            h1.style.transform = "translateY(0px)";
+            h1.style.transition = "transform 600ms ease-in";
+           
+        }
+        window.addEventListener('load', (e) => {
+            slideDown();
+        })
+    </script>
+</html>
