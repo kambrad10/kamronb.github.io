@@ -5,8 +5,8 @@
     </head>
     <style>
         *{
-            margin: 0;
-            padding: 0;
+            margin: 0px;
+            padding: 0px;
             box-sizing: border-box;
             font-family: 'Nunito', sans-serif;
         }
@@ -14,7 +14,7 @@
             overflow-x: hidden;
             text-align: center;
             border: 10px solid white;
-            height: 100vh;
+            height: 300vh;
             background: black;
             color: white;
         }
@@ -24,7 +24,7 @@
             max-width: 600px;
             display: flex;
             flex-direction: column;
-            margin: 0 auto;
+            margin: 0px auto;
             z-index: 1000;
             left: 28.2%;
             background: white;
@@ -71,15 +71,51 @@
             margin: 20px 0px; 
             transform: translateY(-50px)
         }
+        /* Persona Assignment */
+       .assignment-2{
+            position: absolute;
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            margin: 500px auto;
+            z-index: 1000;
+            left: 28.2%;
+            background: rgb(182, 42, 42);
+            color: white;
+            animation: assign 4s ease forwards;
+            opacity: 0;
+            /* transform: translate(3%,5%); */
+       }
+       .assignment-2 h2{
+           color: white;
+       }
+       .assignment-2 img{
+           margin-bottom: 60px;
+       }
+
+
+        /* End of Persona Assignment */
     </style>
     <body>
         <h1>Kam'Ron Bradford's CSCE 190 Site</h1>
+        <!-- Affinity Diagram -->
         <section class ="assignment">
             <a href="files/affinitydiagram.pdf"><img src ="images/affinitydiagram.png"></a>
             <section class = "ass-details">
                 <a href="files/affinitydiagram.pdf"><h2>Affinity Diagram: Diet</h2></a>
                 <p>
                     I worked alone to brainstorm a diet proposition.
+                </p>
+            </section>
+        </section>
+        <!-- Personas Assignment -->
+        <section class ="assignment-2">
+            <a href="files/persona.pdf"><img src ="images/persona.png"></a>
+            <section class = "ass-details">
+                <a href="files/affinitydiagram.pdf"><h2>Personna: KamRon Bradford</h2></a>
+                <p>
+                    A personna of a typical diagram user.
                 </p>
             </section>
         </section>
@@ -112,7 +148,7 @@
                 // while(typeof MSG_from_response == "string"){
                 //     alert(MSG_from_response);
                 // }
-                alert(MSG_from_response);
+                // alert(MSG_from_response);
             }
         })
         .catch(err => console.log(err));
