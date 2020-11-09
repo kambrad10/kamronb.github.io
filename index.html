@@ -1,3 +1,5 @@
+<!-- Kamron Bradford -->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,9 +16,10 @@
             overflow-x: hidden;
             text-align: center;
             border: 10px solid white;
-            height: 300vh;
+            height: 500vh;
             background: black;
             color: white;
+            scroll-behavior: smooth;
         }
         .assignment{
             position: absolute;
@@ -94,8 +97,61 @@
            margin-bottom: 60px;
        }
 
-
         /* End of Persona Assignment */
+        /* Storyboard Assignment */
+        .assignment-3{
+            position: absolute;
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            margin: 1050px auto;
+            z-index: 1000;
+            left: 28.2%;
+            background: rgb(42, 131, 182);
+            color: white;
+            animation: assign 4s ease forwards;
+            opacity: 0;
+            /* transform: translate(3%,5%); */
+       }
+
+        /* End of Storyboard Assignment */
+        /* Button Scroll */
+        button  {
+            position: fixed;
+            width: 50px;
+            right: 5%;
+            bottom: 10%;
+            padding: 25px;
+            cursor: pointer;
+            border-radius: 30px;
+            border: none;
+            display: none;
+            opacity: 0;
+        }
+        button:focus{
+            outline: none;
+        }
+        button div{
+            border: 1px solid black;
+            width: 10px;
+            right: 81px;
+            position: fixed;
+            bottom: 74px;
+        }
+        .arrow{
+            padding: 10px;
+            transform: rotateZ(45deg);
+            border-right: none;
+            border-bottom: none;
+        }
+        /* End Button Scroll */
+        /* List */
+        .list{
+            /* display: flex; */
+            display: none;
+        }
+        /* End of List */
     </style>
     <body>
         <h1>Kam'Ron Bradford's CSCE 190 Site</h1>
@@ -119,6 +175,23 @@
                 </p>
             </section>
         </section>
+        <section class ="assignment-3">
+            <a href="files/storyboard.pdf"><img src ="images/storyboard.jpg"></a>
+            <section class = "ass-details">
+                <a href="files/storyboard.pdf"><h2>Storyboard Assignment</h2></a>
+                <p>
+                    A board that illustrates the possible outcomes of using the app.
+                </p>
+            </section>
+        </section>
+        <button onclick = "clickBtn()">
+            <div class = "arrow"></div>
+        </button>
+        <div class = "list">
+            <p>Affinity Diagram</p>
+            <p>Persona</p>
+            <p>Storyboard</p>
+        </div>
     </body>
     <script>
         class Data {
@@ -172,5 +245,60 @@
         window.addEventListener('load', (e) => {
             slideDown();
         })
+
+
+        // click to scroll up
+
+        function clickBtn(){
+            window.scroll({top: 0, behavior: "smooth"})
+        }
+
+        const btnScroll = document.getElementsByTagName('button')[0];
+        
+
+        const input = ["flex", "1", "none", "opacity 1s ease-in"];
+        
+        window.addEventListener('scroll', () => {
+            if(window.pageYOffset > 113){
+                console.log(input);
+                btnScroll.style.display = Array.from(input)[0];
+                btnScroll.style.opacity = parseInt(Array.from(input)[1]);
+                btnScroll.style.transition = "opacity 1s ease";
+            }else if(window.pageYOffset < 113){
+                btnScroll.style.display = Array.from(input)[2];
+                btnScroll.style.opacity = Array.from(input)[2];
+            }else{
+                return;
+            }
+        })
+
+    // alert in console
+        async function notice(msg){
+        const welcome = "Welcome ";
+        if(msg == welcome.concat("User")){
+        const Greet = await msg;
+        return Greet;
+    }
+}
+class getMessage{
+    constructor(){
+        this.name = notice();
+    }
+    msg(msg){
+        msg = "Welcome User";
+        this.name.then(message => {
+            if(message == undefined){
+                message = msg;
+                console.log(message.toUpperCase());
+            }
+        }).catch(err => {
+            const { log } = console;
+            log(err);
+        })
+    }
+}
+const gmsg = new getMessage();
+gmsg.msg();
+
     </script>
 </html>
